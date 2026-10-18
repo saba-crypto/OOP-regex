@@ -15,7 +15,7 @@ class User {
     this.config = config;
   }
   checkLogin() {
-    if (this.isLoggedIn) {
+    if (this.isLoggedIn === true) {
       return true;
     } else {
       return false;
@@ -131,8 +131,10 @@ navBar.getNavBar();
 function renderUserContainer(user) {
   const userContainer = document.querySelector(".user-container");
   const userRole = user.getUserRole();
+  const isLoggedIn = user.checkLogin();
   userContainer.classList.add(userRole);
-  user.isLoggedIn
+
+  isLoggedIn
     ? userContainer.classList.add("logged-in")
     : userContainer.classList.remove("logged-in");
   userContainer.innerHTML = `
